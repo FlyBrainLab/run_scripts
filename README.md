@@ -1,2 +1,2 @@
 # run_scripts
-shell scripts for starting FlyBrainLab frontend and backend
+shell script templates for starting FlyBrainLab frontend and backend
