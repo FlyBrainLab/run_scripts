@@ -1,9 +1,8 @@
 #!/bin/bash
 
-ORIENTDB_ROOT={ORIENTDB_ROOT}
 FFBO_DIR={FFBO_DIR}
 
-tmux new-session -d -s "db" $ORIENTDB_ROOT/bin/server.sh
+tmux new-session -d -s "db" $FFBO_DIR/bin/run_database.sh
 
 tmux new-session -d -s "processor" $FFBO_DIR/bin/run_processor.sh
 tmux new-session -d -s "nlp_hemibrain" $FFBO_DIR/bin/run_nlp.sh hemibrain
