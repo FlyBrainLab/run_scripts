@@ -16,5 +16,6 @@ tmux new-session -d -s "neurokernel" $FFBO_DIR/bin/run_neurokernel.sh
 
 echo "Servers started. Check tmux sessions for status. To shutdown, run $FFBO_DIR/bin/shutdown.sh"
 
+cd $FFBODIR
 # Starting FlyBrainLab
 $FFBO_DIR/bin/run_fbl.sh
