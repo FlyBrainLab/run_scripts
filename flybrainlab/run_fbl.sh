@@ -6,5 +6,5 @@ FFBO_DIR={FFBO_DIR}
 
 . $CONDA_ROOT/etc/profile.d/conda.sh
 conda activate $FFBO_ENV
-cd $FFBO_DIR/ffbo/
+cd $FFBO_DIR
 jupyter lab --watch --ip 0.0.0.0 --port 8888
