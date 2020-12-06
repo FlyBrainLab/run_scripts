@@ -9,6 +9,7 @@ FFBO_DIR={FFBO_DIR}
 conda activate $FFBO_ENV
 cd $FFBO_DIR/ffbo.neuronlp
 git checkout js/NeuroNLP.js
+git checkout $1
 sleep 2
 cd $FFBO_DIR/ffbo.processor
 python config.py
