@@ -9,6 +9,6 @@ tmux new-session -d -s "nlp" $FFBO_DIR/bin/run_nlp.sh $1
 sleep 20
 tmux new-session -d -s "neuroarch" $FFBO_DIR/bin/run_neuroarch.sh $1
 
-echo "Servers started. Check tmux sessions for status. To shutdown, run ~/run_scripts/shutdown.sh"
+echo "Servers started. Check tmux sessions for status. To shutdown, run ~/ffbo/bin/shutdown.sh"
 
 read -r -d '' _ </dev/tty
