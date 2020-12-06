@@ -19,3 +19,11 @@ git pull
 
 cd $FFBO_DIR/quepy
 git pull
+
+cd $FFBO_DIR/ffbo.neuronlp
+git checkout -f
+git pull
+
+cd $FFBO_DIR/ffbo.neuronlp/lib
+git checkout -f
+git pull
