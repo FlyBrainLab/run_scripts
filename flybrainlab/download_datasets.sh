@@ -3,9 +3,9 @@
 set -e
 
 # prompt to get the path for databases:
-read -p "Directory where you want to store the databases: " ORIENTDB_DIR
+read -p "Please enter the directory where you installed OrientDB: " ORIENTDB_DIR
 
-cd $ORIENTDB_ROOT/databases
+cd $ORIENTDB_RIR/databases
 
 read -p "Download Hemibrain? (y/N) " -n 1 -r
 if [[ $REPLY =~ ^[Yy]$ ]]
