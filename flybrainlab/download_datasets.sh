@@ -5,13 +5,14 @@ set -e
 # prompt to get the path for databases:
 read -p "Please enter the directory where you installed OrientDB: " ORIENTDB_DIR
 
-cd $ORIENTDB_RIR/databases
+cd $ORIENTDB_DIR/databases
 
 read -p "Download Hemibrain? (y/N) " -n 1 -r
 if [[ $REPLY =~ ^[Yy]$ ]]
 then
-    if [ -d "hemibrain"]
+    if [ -d "hemibrain" ]
     then
+        echo
         read -p  "Database $ORIENTDB_DIR/databases/hemibrain will be overwritten, continue? (y/N) " -n 1 -r
         if [[ $REPLY =~ ^[Yy]$ ]]
         then
@@ -31,16 +32,19 @@ then
     fi
 fi
 
+echo
+
 read -p "Download FlyCircuit? (y/N) " -n 1 -r
 
 if [[ $REPLY =~ ^[Yy]$ ]]
 then
-    if [ -d "flycircuit"]
+    if [ -d "flycircuit" ]
     then
+        echo
         read -p  "Database $ORIENTDB_DIR/databases/flycircuit will be overwritten, continue? (y/N) " -n 1 -r
         if [[ $REPLY =~ ^[Yy]$ ]]
         then
-            rm -rf hemibrain
+            rm -rf flycircuit
             echo "Downloading Neuroarch database for FlyCircuit dataset"
             wget --load-cookies /tmp/cookies.txt "https://docs.google.com/uc?export=download&confirm=$(wget --quiet --save-cookies /tmp/cookies.txt --keep-session-cookies --no-check-certificate 'https://docs.google.com/uc?export=download&id=1JXtWt-2X66Mb5I271YRUiMuQx3I2b43s' -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\1\n/p')&id=1JXtWt-2X66Mb5I271YRUiMuQx3I2b43s" -O flycircuit.zip && rm -rf /tmp/cookies.txt
             $ORIENTDB_DIR/bin/console.sh "create database plocal:../databases/flycircuit admin admin; restore database ../databases/flycircuit.zip"
@@ -56,12 +60,15 @@ then
     fi
 fi
 
+echo
+
 read -p "Download Larva L1EM? (y/N) " -n 1 -r
 
 if [[ $REPLY =~ ^[Yy]$ ]]
 then
-    if [ -d "l1em"]
+    if [ -d "l1em" ]
     then
+        echo
         read -p  "Database $ORIENTDB_DIR/databases/l1em will be overwritten, continue? (y/N) " -n 1 -r
         if [[ $REPLY =~ ^[Yy]$ ]]
         then
@@ -80,12 +87,15 @@ then
     fi
 fi
 
+echo
+
 read -p "Download Medulla 7 Column? (y/N) " -n 1 -r
 
 if [[ $REPLY =~ ^[Yy]$ ]]
 then
-    if [ -d "medulla"]
+    if [ -d "medulla" ]
     then
+        echo
         read -p  "Database $ORIENTDB_DIR/databases/medulla will be overwritten, continue? (y/N) " -n 1 -r
         if [[ $REPLY =~ ^[Yy]$ ]]
         then
