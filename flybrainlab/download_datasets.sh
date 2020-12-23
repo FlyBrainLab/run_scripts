@@ -2,16 +2,30 @@
 
 set -e
 
-read -p "Download datasets? (Y/n)" -n 1 -r
-if [[ $REPLY =~ ^[Nn]$ ]]
+if [ $# -eq 0 ]
 then
-    echo
-    exit 0
+    read -p "Please enter the directory where you installed OrientDB (press N or n to skip download): " ORIENTDB_DIR
+    if [ "$ORIENTDB_DIR" == "n" ]
+    then
+        echo
+        exit 0;
+    fi
+fi
+
+if [ $# -gt 0 ]
+then
+    ORIENTDB_DIR=$1
+    read -p "Download datasets to $ORIENTDB_DIR? (Y/n)" -n 1 -r
+    if [[ $REPLY =~ ^[Nn]$ ]]
+    then
+        echo
+        exit 0
+    fi
 fi
 
 echo
 # prompt to get the path for databases:
-read -p "Please enter the directory where you installed OrientDB: " ORIENTDB_DIR
+#read -p "Please enter the directory where you installed OrientDB (press : " ORIENTDB_DIR
 
 cd $ORIENTDB_DIR/databases
 
