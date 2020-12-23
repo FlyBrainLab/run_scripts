@@ -19,3 +19,5 @@ echo "Servers started. Check tmux sessions for status. To shutdown, run $FFBO_DI
 cd $FFBODIR
 # Starting FlyBrainLab
 $FFBO_DIR/bin/run_fbl.sh
+
+$FFBO_DIR/bin/shutdown.sh
