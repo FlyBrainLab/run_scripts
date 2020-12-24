@@ -135,3 +135,5 @@ then
         rm medulla.zip
     fi
 fi
+
+echo
