@@ -125,7 +125,7 @@ then
             echo "Downloading Neuroarch database for Larva L1EM dataset"
             wget --load-cookies /tmp/cookies.txt "https://docs.google.com/uc?export=download&confirm=$(wget --quiet --save-cookies /tmp/cookies.txt --keep-session-cookies --no-check-certificate 'https://docs.google.com/uc?export=download&id=1XrQWCMB6Y3ADLfWBVF8kA_44KxTVnIq7' -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\1\n/p')&id=1XrQWCMB6Y3ADLfWBVF8kA_44KxTVnIq7" -O medulla.zip && rm -rf /tmp/cookies.txt
             $ORIENTDB_DIR/bin/console.sh "create database plocal:../databases/medulla admin admin; restore database ../databases/medulla.zip"
-            rm l1em.zip
+            rm medulla.zip
         else
             echo "Database l1em not downloaded."
         fi
