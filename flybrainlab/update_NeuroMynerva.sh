@@ -10,6 +10,7 @@ conda activate $FFBO_ENV
 cd $FFBO_DIR/NeuroMynerva
 git pull
 jupyter lab clean
-lpm run upgrade neu3d
+jlpm run upgrade neu3d
+jlpm
 jlpm run build
 jupyter labextension install .
