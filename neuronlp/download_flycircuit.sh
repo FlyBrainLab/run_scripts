@@ -29,7 +29,7 @@ echo
 
 cd $ORIENTDB_DIR/databases
 
-read -p "Download FlyCircuit 1.2? (y/N) " -n 1 -r
+read -p "Download FlyCircuit v1.2? (y/N) " -n 1 -r
 
 if [[ $REPLY =~ ^[Yy]$ ]]
 then

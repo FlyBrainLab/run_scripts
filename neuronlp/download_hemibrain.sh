@@ -29,7 +29,7 @@ echo
 
 cd $ORIENTDB_DIR/databases
 
-read -p "Download Hemibrain 1.2? (y/N) " -n 1 -r
+read -p "Download Hemibrain v1.2? (y/N) " -n 1 -r
 if [[ $REPLY =~ ^[Yy]$ ]]
 then
     if [ -d "hemibrain" ]
@@ -40,7 +40,7 @@ then
         then
             rm -rf hemibrain/*.*
             echo "Downloading Neuroarch database for Hemibrain dataset"
-            wget --load-cookies /tmp/cookies.txt "https://docs.google.com/uc?export=download&confirm=$(wget --quiet --save-cookies /tmp/cookies.txt --keep-session-cookies --no-check-certificate 'https://docs.google.com/uc?export=download&id=1Y63UpypJ-eMgOdX3bcSRO4Ct3DqmH6-X' -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\1\n/p')&id=1Y63UpypJ-eMgOdX3bcSRO4Ct3DqmH6-X" -O hemibrain.zip && rm -rf /tmp/cookies.txt
+            wget --load-cookies /tmp/cookies.txt "https://docs.google.com/uc?export=download&confirm=$(wget --quiet --save-cookies /tmp/cookies.txt --keep-session-cookies --no-check-certificate 'https://docs.google.com/uc?export=download&id=1UguZ-9kuHVZF5_yZzlpyRAGVGrx41NHv' -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\1\n/p')&id=1UguZ-9kuHVZF5_yZzlpyRAGVGrx41NHv" -O hemibrain.zip && rm -rf /tmp/cookies.txt
             $ORIENTDB_DIR/bin/console.sh "create database plocal:../databases/hemibrain admin admin; restore database ../databases/hemibrain.zip"
             rm hemibrain.zip
         else
@@ -48,7 +48,7 @@ then
         fi
     else
         echo "Downloading Neuroarch database for Hemibrain dataset"
-        wget --load-cookies /tmp/cookies.txt "https://docs.google.com/uc?export=download&confirm=$(wget --quiet --save-cookies /tmp/cookies.txt --keep-session-cookies --no-check-certificate 'https://docs.google.com/uc?export=download&id=1Y63UpypJ-eMgOdX3bcSRO4Ct3DqmH6-X' -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\1\n/p')&id=1Y63UpypJ-eMgOdX3bcSRO4Ct3DqmH6-X" -O hemibrain.zip && rm -rf /tmp/cookies.txt
+        wget --load-cookies /tmp/cookies.txt "https://docs.google.com/uc?export=download&confirm=$(wget --quiet --save-cookies /tmp/cookies.txt --keep-session-cookies --no-check-certificate 'https://docs.google.com/uc?export=download&id=1UguZ-9kuHVZF5_yZzlpyRAGVGrx41NHv' -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\1\n/p')&id=1UguZ-9kuHVZF5_yZzlpyRAGVGrx41NHv" -O hemibrain.zip && rm -rf /tmp/cookies.txt
         $ORIENTDB_DIR/bin/console.sh "create database plocal:../databases/hemibrain admin admin; restore database ../databases/hemibrain.zip"
         rm hemibrain.zip
     fi
