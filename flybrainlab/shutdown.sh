@@ -1,7 +1,7 @@
 #!/bin/bash
 
 ORIENTDB_ROOT={ORIENTDB_ROOT}
-$ORIENTDB_ROOT/bin/shutdown.sh
+$ORIENTDB_ROOT/bin/shutdown.sh -P {ORIENTDB_BINARY_PORT} -u root -p root
 tmux kill-session -t db
 tmux kill-session -t processor
 tmux kill-session -t nlp_hemibrain
