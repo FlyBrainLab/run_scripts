@@ -9,7 +9,11 @@ conda activate $FFBO_ENV
 cd $FFBO_DIR/ffbo.neuroarch_component/neuroarch_component
 
 if [ $# -eq 0 ]; then
-    python neuroarch_component.py --database hemibrain --dataset hemibrain --name hemibrain_v1.0.1
+    echo Usage:
+    echo ./run_neuroarch.sh database_folder_name [dataset_name] [server_name]
+    echo example: ./run_neuroarch.sh hemibrain
+    echo          ./run_neuroarch.sh flycircuit flycircuit flycircuit1.2
+    exit(0);
 fi
 
 if [ $# -eq 1 ]; then
