@@ -13,7 +13,7 @@ if [ $# -eq 0 ]; then
     echo ./run_neuroarch.sh database_folder_name [dataset_name] [server_name]
     echo example: ./run_neuroarch.sh hemibrain
     echo          ./run_neuroarch.sh flycircuit flycircuit flycircuit1.2
-    exit(0);
+    exit 0
 fi
 
 if [ $# -eq 1 ]; then

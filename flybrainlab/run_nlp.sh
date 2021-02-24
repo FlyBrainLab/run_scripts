@@ -14,7 +14,7 @@ if [ $# -eq 0 ]; then
     echo ./run_nlp.sh app_name [dataset_name] [server_name]
     echo example: ./run_nlp.sh hemibrain
     echo          ./run_nlp.sh flycircuit flycircuit flycircuit1.2
-    exit(0);
+    exit 0
 fi
 
 if [ $# -eq 1 ]; then
