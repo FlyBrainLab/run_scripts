@@ -33,6 +33,9 @@ cd $FFBO_DIR/ffbo.neurokernel_component
 git pull
 python -m pip install -e .
 
-python -m pip install --upgrade neuroarch neurokernel neurodriver git+https://github.com/flybrainlab/Neuroballad.git flybrainlab neuromynerva
+python -m pip install --upgrade neuroarch neurokernel neurodriver git+https://github.com/flybrainlab/Neuroballad.git flybrainlab[full] neuromynerva
 
 conda deactivate
+
+cd $FFBO_DIR/Tutorials
+git pull
