@@ -11,49 +11,49 @@ conda activate $NLP_ENV
 
 cd $FFBO_DIR/ffbo.neuroarch_nlp
 git pull
-python setup.py develop
+python -m pip install -e .
 
 cd $FFBO_DIR/ffbo.nlp_component
 git pull
-python setup.py develop
+python -m pip install -e .
 
 conda deactivate
 conda activate $CROSSBAR_ENV
 
 cd $FFBO_DIR/ffbo.processor
 git pull
-python setup.py develop
+python -m pip install -e .
 
 conda deactivate
 conda activate $FFBO_ENV
 
 cd $FFBO_DIR/neuroarch
 git pull
-python setup.py develop
+python -m pip install -e .
 
 cd $FFBO_DIR/ffbo.neuroarch_component
 git pull
-python setup.py develop
+python -m pip install -e .
 
 cd $FFBO_DIR/neurokernel
 git pull
-python setup.py develop
+python -m pip install -e .
 cd $FFBO_DIR/neurodriver
 git pull
-python setup.py develop
+python -m pip install -e .
 cd $FFBO_DIR/ffbo.neurokernel_component
 git pull
-python setup.py develop
+python -m pip install -e .
 
 cd $FFBO_DIR/Neuroballad
 git pull
-python setup.py develop
+python -m pip install -e .
 cd $FFBO_DIR/FBLClient
 git pull
-python setup.py develop
+python -m pip install -e .[full]
 cd $FFBO_DIR/NeuroMynerva
 git pull
-pip install -e .
+python -m pip install -e .
 jupyter labextension develop . --overwrite
 jlpm run build
 

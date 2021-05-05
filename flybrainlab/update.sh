@@ -9,30 +9,30 @@ FFBO_DIR={FFBO_DIR}
 . $CONDA_ROOT/etc/profile.d/conda.sh
 conda activate $NLP_ENV
 
+python -m pip install --upgrade git+https://github.com/fruitflybrain/ffbo.neuroarch_nlp.git
+
 cd $FFBO_DIR/ffbo.nlp_component
 git pull
-python setup.py develop
-
-pip install --upgrade git+https://github.com/fruitflybrain/ffbo.neuroarch_nlp.git
+python -m pip install -e .
 
 conda deactivate
 conda activate $CROSSBAR_ENV
 
 cd $FFBO_DIR/ffbo.processor
 git pull
-python setup.py develop
+python -m pip install -e .
 
 conda deactivate
 conda activate $FFBO_ENV
 
 cd $FFBO_DIR/ffbo.neuroarch_component
 git pull
-python setup.py develop
+python -m pip install -e .
 
 cd $FFBO_DIR/ffbo.neurokernel_component
 git pull
-python setup.py develop
+python -m pip install -e .
 
-pip install --upgrade neuroarch neurokernel neurodriver git+https://github.com/flybrainlab/Neuroballad.git flybrainlab neuromynerva
+python -m pip install --upgrade neuroarch neurokernel neurodriver git+https://github.com/flybrainlab/Neuroballad.git flybrainlab neuromynerva
 
 conda deactivate
