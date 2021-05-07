@@ -58,3 +58,7 @@ jupyter labextension develop . --overwrite
 jlpm run build
 
 conda deactivate
+
+cd $FFBO_DIR/Tutorials
+git pull
+
