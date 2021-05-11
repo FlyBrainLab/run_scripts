@@ -1,24 +1,38 @@
 #!/bin/bash
 
+
+CONDA_ROOT=$(conda info --base)
+CROSSBAR_ENV={CROSSBAR_ENV}
+NLP_ENV={NLP_ENV}
+FFBO_ENV={FFBO_ENV}
 FFBO_DIR={FFBO_DIR}
+
+. $CONDA_ROOT/etc/profile.d/conda.sh
+conda activate $NLP_ENV
+
+python -m pip install --upgrade git+https://github.com/fruitflybrain/ffbo.neuroarch_nlp.git
 
 cd $FFBO_DIR/ffbo.nlp_component
 git pull
+python -m pip install -e .
 
-cd $FFBO_DIR/ffbo.neuroarch_nlp
-git pull
+conda deactivate
+conda activate $CROSSBAR_ENV
 
 cd $FFBO_DIR/ffbo.processor
 git pull
+python -m pip install -e .
+
+conda deactivate
+conda activate $FFBO_ENV
 
 cd $FFBO_DIR/ffbo.neuroarch_component
 git pull
+python -m pip install -e .
 
-cd $FFBO_DIR/neuroarch
-git pull
+python -m pip install --upgrade neuroarch
 
-cd $FFBO_DIR/quepy
-git pull
+conda deactivate
 
 cd $FFBO_DIR/ffbo.neuronlp
 git checkout -f
