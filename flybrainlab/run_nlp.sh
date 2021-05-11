@@ -1,5 +1,59 @@
 #!/bin/bash
 
+usage() { echo; echo "Usage: $0 -a app_name [-s dataset_name] [-n server_name] [-h]
+    -a  the name of application
+    -s  the name of the dataset to register with FFBO processor
+    -n  the name of this neuroarch server
+    -h  prints this help message
+" 1>&2;}
+
+while getopts "ha:n:s:" opt; do
+  case $opt in
+    a)
+        if [ -z ${app+x} ];
+        then
+            app="$OPTARG"
+        else
+            echo "multiple -a options specified"
+            exit 1
+        fi
+        ;;
+    s)
+        if [ -z ${dataset+x} ];
+        then
+            dataset="$OPTARG"
+        else
+            echo "multiple -s options specified"
+            exit 1
+        fi
+        ;;
+    n)
+        if [ -z ${name+x} ];
+        then
+            name="$OPTARG"
+        else
+            echo "multiple -n options specified"
+            exit 1
+        fi
+        ;;
+    h)
+        usage
+        exit
+        ;;
+    \?)
+        echo "Invalid option -$OPTARG" >&2
+        usage
+        exit 1
+        ;;
+  esac
+done
+
+if [ -z ${app+x} ];
+then
+    usage
+    exit 1
+fi
+
 CONDA_ROOT=$(conda info --base)
 NLP_ENV={NLP_ENV}
 FFBO_DIR={FFBO_DIR}
@@ -8,23 +62,14 @@ FFBO_DIR={FFBO_DIR}
 conda activate $NLP_ENV
 cd $FFBO_DIR/ffbo.nlp_component/nlp_component
 
-# Defaults to hemibrain app
-if [ $# -eq 0 ]; then
-    echo Usage:
-    echo ./run_nlp.sh app_name [dataset_name] [server_name]
-    echo example: ./run_nlp.sh hemibrain
-    echo          ./run_nlp.sh flycircuit flycircuit flycircuit1.2
-    exit 0
+if [ -z ${dataset+x} ];
+then
+    dataset=$app
 fi
 
-if [ $# -eq 1 ]; then
-    python nlp_component.py --app $1
+if [ -z ${name+x} ];
+then
+    name=$app
 fi
 
-if [ $# -eq 2 ]; then
-    python nlp_component.py --app $1 --dataset $2
-fi
-
-if [ $# -eq 3 ]; then
-    python nlp_component.py --app $1 --dataset $2 --name $3
-fi
+python nlp_component.py --app $app --dataset $dataset

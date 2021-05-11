@@ -1,5 +1,69 @@
 #!/bin/bash
 
+usage() { echo; echo "Usage: $0 -b database_folder_name [-s dataset_name] [-n server_name] [-m mode] [-h]
+    -b  the name of the database folder in orientdb/databases to connect to
+    -s  the name of the dataset to register with FFBO processor
+    -n  the name of this neuroarch server
+    -m  mode of database access: 'r' read-only, 'w' read-write, 'o' overwrite (delete the entire database)
+    -h  prints this help message
+" 1>&2;}
+
+while getopts "hb:n:s:m:" opt; do
+  case $opt in
+    b)
+        if [ -z ${database+x} ];
+        then
+            database="$OPTARG"
+        else
+            echo "multiple -b options specified"
+            exit 1
+        fi
+        ;;
+    s)
+        if [ -z ${dataset+x} ];
+        then
+            dataset="$OPTARG"
+        else
+            echo "multiple -s options specified"
+            exit 1
+        fi
+        ;;
+    n)
+        if [ -z ${name+x} ];
+        then
+            name="$OPTARG"
+        else
+            echo "multiple -n options specified"
+            exit 1
+        fi
+        ;;
+    m)
+        if [ -z ${mode+x} ];
+        then
+            mode="$OPTARG"
+        else
+            echo "multiple -m options specified"
+            exit 1
+        fi
+        ;;
+    h)
+        usage
+        exit
+        ;;
+    \?)
+        echo "Invalid option -$OPTARG" >&2
+        usage
+        exit 1
+        ;;
+  esac
+done
+
+if [ -z ${database+x} ];
+then
+    usage
+    exit 1
+fi
+
 CONDA_ROOT=$(conda info --base)
 FFBO_ENV={FFBO_ENV}
 FFBO_DIR={FFBO_DIR}
@@ -8,18 +72,20 @@ FFBO_DIR={FFBO_DIR}
 conda activate $FFBO_ENV
 cd $FFBO_DIR/ffbo.neuroarch_component/neuroarch_component
 
-if [ $# -eq 0 ]; then
-    python neuroarch_component.py --database hemibrain --dataset hemibrain --name hemibrain
+if [ -z ${mode+x} ];
+then
+    mode="r"
 fi
 
-if [ $# -eq 1 ]; then
-    python neuroarch_component.py --database $1 --dataset $1 --name $1
+if [ -z ${dataset+x} ];
+then
+    dataset=$database
 fi
 
-if [ $# -eq 2 ]; then
-    python neuroarch_component.py --database $1 --dataset $2 --name $2
+if [ -z ${name+x} ];
+then
+    name=$database
 fi
 
-if [ $# -eq 3 ]; then
-    python neuroarch_component.py --database $1 --dataset $2 --name $3
-fi
+python neuroarch_component.py --database $database --dataset $dataset --name $name --mode $mode
+
