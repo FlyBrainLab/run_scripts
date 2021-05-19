@@ -1,12 +1,12 @@
 #!/bin/bash
 
 CONDA_ROOT=$(conda info --base)
-FFBO_ENV={FFBO_ENV}
+CROSSBAR_ENV={CROSSBAR_ENV}
 FFBO_DIR={FFBO_DIR}
 
 . $CONDA_ROOT/etc/profile.d/conda.sh
 
-conda activate $FFBO_ENV
+conda activate $CROSSBAR_ENV
 cd $FFBO_DIR/ffbo.neuronlp
 git checkout js/NeuroNLP.js
 git checkout $1
