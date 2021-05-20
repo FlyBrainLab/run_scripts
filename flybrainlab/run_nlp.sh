@@ -3,7 +3,7 @@
 usage() { echo; echo "Usage: $0 -a app_name [-s dataset_name] [-n server_name] [-h]
     -a  the name of application
     -s  the name of the dataset to register with FFBO processor
-    -n  the name of this neuroarch server
+    -n  the name of this nlp server
     -h  prints this help message
 " 1>&2;}
 
