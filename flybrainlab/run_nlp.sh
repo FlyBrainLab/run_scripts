@@ -72,4 +72,4 @@ then
     name=$app
 fi
 
-python nlp_component.py --app $app --dataset $dataset
+python nlp_component.py --app $app --dataset $dataset --name $name
