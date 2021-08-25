@@ -87,7 +87,7 @@ then
     name=$database
 fi
 
-binary_port=$(awk -F "=" '/binary-port/ {print $2}' ~/.ffbo/config/config.ini | tr -d ' ')
+BINARY_PORT=$(awk -F "=" '/binary-port/ {print $2}' ~/.ffbo/config/config.ini | tr -d ' ')
 if [ -z "$BINARY_PORT" ];
 then
     python neuroarch_component.py --database $database --dataset $dataset --name $name --mode $mode;
