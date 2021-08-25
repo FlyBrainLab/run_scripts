@@ -1,5 +1,6 @@
 #!/bin/bash
 
+ORIENTDB_ROOT={ORIENTDB_ROOT}
 BINARY_PORT=$(awk -F "=" '/binary-port/ {print $2}' ~/.ffbo/config/config.ini | tr -d ' ')
 HTTP_PORT=$(awk -F "=" '/http-port/ {print $2}' ~/.ffbo/config/config.ini | tr -d ' ')
 if [ ! -z "$BINARY_PORT" ];
@@ -18,5 +19,4 @@ then
     rm $ORIENTDB_ROOT/config/test.xml
 fi
 
-ORIENTDB_ROOT={ORIENTDB_ROOT}
 $ORIENTDB_ROOT/bin/server.sh
