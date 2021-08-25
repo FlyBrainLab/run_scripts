@@ -14,7 +14,7 @@ fi
 
 if [ ! -z "$HTTP_PORT" ];
 then
-    sed "/protocol=\"http\"/c\            <listener protocol=\"binary\" socket=\"default\" port-range=\"$HTTP_PORT\" ip-address=\"0.0.0.0\"/>" $ORIENTDB_ROOT/config/orientdb-server-config.xml | tee $ORIENTDB_ROOT/config/test.xml
+    sed "/protocol=\"http\"/c\            <listener protocol=\"http\" socket=\"default\" port-range=\"$HTTP_PORT\" ip-address=\"0.0.0.0\">" $ORIENTDB_ROOT/config/orientdb-server-config.xml | tee $ORIENTDB_ROOT/config/test.xml
     cp $ORIENTDB_ROOT/config/test.xml $ORIENTDB_ROOT/config/orientdb-server-config.xml
     rm $ORIENTDB_ROOT/config/test.xml
 fi
