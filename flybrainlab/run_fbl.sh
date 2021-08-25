@@ -7,4 +7,4 @@ FFBO_DIR={FFBO_DIR}
 . $CONDA_ROOT/etc/profile.d/conda.sh
 conda activate $FFBO_ENV
 cd $FFBO_DIR
-jupyter lab --ip 0.0.0.0 --NotebookApp.iopub_data_rate_limit=10000000000
+jupyter lab --ip 0.0.0.0 --ServerApp.iopub_data_rate_limit=10000000000
