@@ -55,11 +55,11 @@ then
 fi
 
 CONDA_ROOT=$(conda info --base)
-NLP_ENV={NLP_ENV}
+FFBO_ENV={FFBO_ENV}
 FFBO_DIR={FFBO_DIR}
 
 . $CONDA_ROOT/etc/profile.d/conda.sh
-conda activate $NLP_ENV
+conda activate $FFBO_ENV
 cd $FFBO_DIR/ffbo.nlp_component/nlp_component
 
 if [ -z ${dataset+x} ];
