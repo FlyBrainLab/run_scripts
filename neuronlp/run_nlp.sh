@@ -1,13 +1,16 @@
 #!/bin/bash
 
-usage() { echo; echo "Usage: $0 -a app_name [-s dataset_name] [-n server_name] [-h]
+usage() { echo; echo "Usage: $0 -a app_name [-s dataset_name] [-n server_name] [-b] [-h]
     -a  the name of application
     -s  the name of the dataset to register with FFBO processor
     -n  the name of this nlp server
+    -b  run drosobot
     -h  prints this help message
 " 1>&2;}
 
-while getopts "ha:n:s:" opt; do
+extra_args=""
+
+while getopts "ha:n:s:b" opt; do
   case $opt in
     a)
         if [ -z ${app+x} ];
@@ -35,6 +38,9 @@ while getopts "ha:n:s:" opt; do
             echo "multiple -n options specified"
             exit 1
         fi
+        ;;
+    b)
+        extra_args="--drosobot"
         ;;
     h)
         usage
@@ -72,4 +78,4 @@ then
     name=$app
 fi
 
-python nlp_component.py --app $app --dataset $dataset --name $name
+python nlp_component.py --app $app --dataset $dataset --name $name $extra_args

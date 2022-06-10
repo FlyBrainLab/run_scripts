@@ -1,14 +1,15 @@
 #!/bin/bash
 
-usage() { echo; echo "Usage: $0 -b database_folder_name [-s dataset_name] [-n server_name] [-m mode] [-h]
+usage() { echo; echo "Usage: $0 -b database_folder_name [-s dataset_name] [-n server_name] [-m mode] [-d] [-h]
     -b  the name of the database folder in orientdb/databases to connect to
     -s  the name of the dataset to register with FFBO processor
     -n  the name of this neuroarch server
     -m  mode of database access: 'r' read-only, 'w' read-write, 'o' overwrite (delete the entire database)
+    -d  debug mode
     -h  prints this help message
 " 1>&2;}
 
-while getopts "hb:n:s:m:" opt; do
+while getopts "hdb:n:s:m:" opt; do
   case $opt in
     b)
         if [ -z ${database+x} ];
@@ -45,6 +46,9 @@ while getopts "hb:n:s:m:" opt; do
             echo "multiple -m options specified"
             exit 1
         fi
+        ;;
+    d)
+        debug="--debug"
         ;;
     h)
         usage
@@ -87,5 +91,12 @@ then
     name=$database
 fi
 
-python neuroarch_component.py --database $database --dataset $dataset --name $name --mode $mode
+BINARY_PORT=$(awk -F "=" '/binary-port/ {print $2}' ~/.ffbo/config/config.ini | tr -d ' ')
+if [ -z "$BINARY_PORT" ];
+then
+    python neuroarch_component.py --database $database --dataset $dataset --name $name --mode $mode $debug;
+else
+    python neuroarch_component.py --port $BINARY_PORT --database $database --dataset $dataset --name $name --mode $mode $debug;
+fi
+
 

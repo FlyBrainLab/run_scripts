@@ -4,10 +4,11 @@ usage() { echo; echo "Usage: $0 -a app_name [-s dataset_name] [-n server_name] [
     -a  the name of application
     -s  the name of the dataset to register with FFBO processor
     -n  the name of this nlp server
+    -b  run drosobot
     -h  prints this help message
 " 1>&2;}
 
-while getopts "ha:n:s:" opt; do
+while getopts "ha:n:s:b" opt; do
   case $opt in
     a)
         if [ -z ${app+x} ];
@@ -36,6 +37,9 @@ while getopts "ha:n:s:" opt; do
             exit 1
         fi
         ;;
+    b)
+        extra_args="--drosobot"
+        ;;
     h)
         usage
         exit
@@ -55,7 +59,7 @@ then
 fi
 
 CONDA_ROOT=$(conda info --base)
-NLP_ENV={NLP_ENV}
+FFBO_ENV={FFBO_ENV}
 FFBO_DIR={FFBO_DIR}
 
 . $CONDA_ROOT/etc/profile.d/conda.sh
@@ -72,4 +76,4 @@ then
     name=$app
 fi
 
-python nlp_component.py --app $app --dataset $dataset --name $name
+python nlp_component.py --app $app --dataset $dataset --name $name $extra_args
