@@ -40,7 +40,7 @@ then
         then
             rm -rf hemibrain/*.*
             echo "Downloading Neuroarch database for Hemibrain dataset"
-            wget --load-cookies /tmp/cookies.txt "https://docs.google.com/uc?export=download&confirm=$(wget --quiet --save-cookies /tmp/cookies.txt --keep-session-cookies --no-check-certificate 'https://docs.google.com/uc?export=download&id=1UguZ-9kuHVZF5_yZzlpyRAGVGrx41NHv' -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\1\n/p')&id=1UguZ-9kuHVZF5_yZzlpyRAGVGrx41NHv" -O hemibrain.zip && rm -rf /tmp/cookies.txt
+            wget --load-cookies /tmp/cookies.txt "https://docs.google.com/uc?export=download&confirm=$(wget --quiet --save-cookies /tmp/cookies.txt --keep-session-cookies --no-check-certificate 'https://docs.google.com/uc?export=download&id=1jLTNkvIyJhGv3xZZAClzY1R8neLCsh8H' -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\1\n/p')&id=1jLTNkvIyJhGv3xZZAClzY1R8neLCsh8H" -O hemibrain.zip && rm -rf /tmp/cookies.txt
             $ORIENTDB_DIR/bin/console.sh "create database plocal:../databases/hemibrain admin admin; restore database ../databases/hemibrain.zip"
             rm hemibrain.zip
         else
@@ -48,7 +48,7 @@ then
         fi
     else
         echo "Downloading Neuroarch database for Hemibrain dataset"
-        wget --load-cookies /tmp/cookies.txt "https://docs.google.com/uc?export=download&confirm=$(wget --quiet --save-cookies /tmp/cookies.txt --keep-session-cookies --no-check-certificate 'https://docs.google.com/uc?export=download&id=1UguZ-9kuHVZF5_yZzlpyRAGVGrx41NHv' -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\1\n/p')&id=1UguZ-9kuHVZF5_yZzlpyRAGVGrx41NHv" -O hemibrain.zip && rm -rf /tmp/cookies.txt
+        wget --load-cookies /tmp/cookies.txt "https://docs.google.com/uc?export=download&confirm=$(wget --quiet --save-cookies /tmp/cookies.txt --keep-session-cookies --no-check-certificate 'https://docs.google.com/uc?export=download&id=1jLTNkvIyJhGv3xZZAClzY1R8neLCsh8H' -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\1\n/p')&id=1jLTNkvIyJhGv3xZZAClzY1R8neLCsh8H" -O hemibrain.zip && rm -rf /tmp/cookies.txt
         $ORIENTDB_DIR/bin/console.sh "create database plocal:../databases/hemibrain admin admin; restore database ../databases/hemibrain.zip"
         rm hemibrain.zip
     fi
@@ -68,7 +68,7 @@ then
         then
             rm -rf flycircuit/*.*
             echo "Downloading Neuroarch database for FlyCircuit dataset"
-            wget --load-cookies /tmp/cookies.txt "https://docs.google.com/uc?export=download&confirm=$(wget --quiet --save-cookies /tmp/cookies.txt --keep-session-cookies --no-check-certificate 'https://docs.google.com/uc?export=download&id=1JXtWt-2X66Mb5I271YRUiMuQx3I2b43s' -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\1\n/p')&id=1JXtWt-2X66Mb5I271YRUiMuQx3I2b43s" -O flycircuit.zip && rm -rf /tmp/cookies.txt
+            wget --load-cookies /tmp/cookies.txt "https://docs.google.com/uc?export=download&confirm=$(wget --quiet --save-cookies /tmp/cookies.txt --keep-session-cookies --no-check-certificate 'https://docs.google.com/uc?export=download&id=1WjKAvYazxE-shmvzo_B1OC-7zvAbfMW4' -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\1\n/p')&id=1WjKAvYazxE-shmvzo_B1OC-7zvAbfMW4" -O flycircuit.zip && rm -rf /tmp/cookies.txt
             $ORIENTDB_DIR/bin/console.sh "create database plocal:../databases/flycircuit admin admin; restore database ../databases/flycircuit.zip"
             rm flycircuit.zip
         else
@@ -76,7 +76,7 @@ then
         fi
     else
         echo "Downloading Neuroarch database for FlyCircuit dataset"
-        wget --load-cookies /tmp/cookies.txt "https://docs.google.com/uc?export=download&confirm=$(wget --quiet --save-cookies /tmp/cookies.txt --keep-session-cookies --no-check-certificate 'https://docs.google.com/uc?export=download&id=1JXtWt-2X66Mb5I271YRUiMuQx3I2b43s' -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\1\n/p')&id=1JXtWt-2X66Mb5I271YRUiMuQx3I2b43s" -O flycircuit.zip && rm -rf /tmp/cookies.txt
+        wget --load-cookies /tmp/cookies.txt "https://docs.google.com/uc?export=download&confirm=$(wget --quiet --save-cookies /tmp/cookies.txt --keep-session-cookies --no-check-certificate 'https://docs.google.com/uc?export=download&id=1WjKAvYazxE-shmvzo_B1OC-7zvAbfMW4' -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\1\n/p')&id=1WjKAvYazxE-shmvzo_B1OC-7zvAbfMW4" -O flycircuit.zip && rm -rf /tmp/cookies.txt
         $ORIENTDB_DIR/bin/console.sh "create database plocal:../databases/flycircuit admin admin; restore database ../databases/flycircuit.zip"
         rm flycircuit.zip
     fi
@@ -96,14 +96,14 @@ then
         then
             rm -rf l1em/*.*
             echo "Downloading Neuroarch database for Larva L1EM dataset"
-            wget --load-cookies /tmp/cookies.txt "https://docs.google.com/uc?export=download&confirm=$(wget --quiet --save-cookies /tmp/cookies.txt --keep-session-cookies --no-check-certificate 'https://docs.google.com/uc?export=download&id=1hYjA43poDjL8WtQ1AUBzYxKTaJ4In-GU' -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\1\n/p')&id=1hYjA43poDjL8WtQ1AUBzYxKTaJ4In-GU" -O l1em.zip && rm -rf /tmp/cookies.txt
+            wget --load-cookies /tmp/cookies.txt "https://docs.google.com/uc?export=download&confirm=$(wget --quiet --save-cookies /tmp/cookies.txt --keep-session-cookies --no-check-certificate 'https://docs.google.com/uc?export=download&id=1tcORsE8QVxwuCRQviVsoN11Mjs3Dq_24' -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\1\n/p')&id=1tcORsE8QVxwuCRQviVsoN11Mjs3Dq_24" -O l1em.zip && rm -rf /tmp/cookies.txt
             $ORIENTDB_DIR/bin/console.sh "create database plocal:../databases/l1em admin admin; restore database ../databases/l1em.zip"
             rm l1em.zip
         else
             echo "Database l1em not downloaded."
         fi
     else
-        wget --load-cookies /tmp/cookies.txt "https://docs.google.com/uc?export=download&confirm=$(wget --quiet --save-cookies /tmp/cookies.txt --keep-session-cookies --no-check-certificate 'https://docs.google.com/uc?export=download&id=1hYjA43poDjL8WtQ1AUBzYxKTaJ4In-GU' -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\1\n/p')&id=1hYjA43poDjL8WtQ1AUBzYxKTaJ4In-GU" -O l1em.zip && rm -rf /tmp/cookies.txt
+        wget --load-cookies /tmp/cookies.txt "https://docs.google.com/uc?export=download&confirm=$(wget --quiet --save-cookies /tmp/cookies.txt --keep-session-cookies --no-check-certificate 'https://docs.google.com/uc?export=download&id=1tcORsE8QVxwuCRQviVsoN11Mjs3Dq_24' -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\1\n/p')&id=1tcORsE8QVxwuCRQviVsoN11Mjs3Dq_24" -O l1em.zip && rm -rf /tmp/cookies.txt
         $ORIENTDB_DIR/bin/console.sh "create database plocal:../databases/l1em admin admin; restore database ../databases/l1em.zip"
         rm l1em.zip
     fi
@@ -123,14 +123,14 @@ then
         then
             rm -rf medulla/*.*
             echo "Downloading Neuroarch database for Larva L1EM dataset"
-            wget --load-cookies /tmp/cookies.txt "https://docs.google.com/uc?export=download&confirm=$(wget --quiet --save-cookies /tmp/cookies.txt --keep-session-cookies --no-check-certificate 'https://docs.google.com/uc?export=download&id=1XrQWCMB6Y3ADLfWBVF8kA_44KxTVnIq7' -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\1\n/p')&id=1XrQWCMB6Y3ADLfWBVF8kA_44KxTVnIq7" -O medulla.zip && rm -rf /tmp/cookies.txt
+            wget --load-cookies /tmp/cookies.txt "https://docs.google.com/uc?export=download&confirm=$(wget --quiet --save-cookies /tmp/cookies.txt --keep-session-cookies --no-check-certificate 'https://docs.google.com/uc?export=download&id=1S5dupAC_uFzgBKDqL5OdUXWBQKZPXvvz' -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\1\n/p')&id=1S5dupAC_uFzgBKDqL5OdUXWBQKZPXvvz" -O medulla.zip && rm -rf /tmp/cookies.txt
             $ORIENTDB_DIR/bin/console.sh "create database plocal:../databases/medulla admin admin; restore database ../databases/medulla.zip"
             rm medulla.zip
         else
             echo "Database l1em not downloaded."
         fi
     else
-        wget --load-cookies /tmp/cookies.txt "https://docs.google.com/uc?export=download&confirm=$(wget --quiet --save-cookies /tmp/cookies.txt --keep-session-cookies --no-check-certificate 'https://docs.google.com/uc?export=download&id=1XrQWCMB6Y3ADLfWBVF8kA_44KxTVnIq7' -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\1\n/p')&id=1XrQWCMB6Y3ADLfWBVF8kA_44KxTVnIq7" -O medulla.zip && rm -rf /tmp/cookies.txt
+        wget --load-cookies /tmp/cookies.txt "https://docs.google.com/uc?export=download&confirm=$(wget --quiet --save-cookies /tmp/cookies.txt --keep-session-cookies --no-check-certificate 'https://docs.google.com/uc?export=download&id=1S5dupAC_uFzgBKDqL5OdUXWBQKZPXvvz' -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\1\n/p')&id=1S5dupAC_uFzgBKDqL5OdUXWBQKZPXvvz" -O medulla.zip && rm -rf /tmp/cookies.txt
         $ORIENTDB_DIR/bin/console.sh "create database plocal:../databases/medulla admin admin; restore database ../databases/medulla.zip"
         rm medulla.zip
     fi
