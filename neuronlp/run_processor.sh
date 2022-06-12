@@ -8,9 +8,7 @@ FFBO_DIR={FFBO_DIR}
 
 conda activate $CROSSBAR_ENV
 cd $FFBO_DIR/ffbo.neuronlp
-git checkout js/NeuroNLP.js
-git checkout $1
-cd lib
+git checkout config/config.json
 git checkout $1
 sleep 2
 cd $FFBO_DIR/ffbo.processor
