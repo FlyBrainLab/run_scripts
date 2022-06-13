@@ -7,10 +7,6 @@ FFBO_DIR={FFBO_DIR}
 . $CONDA_ROOT/etc/profile.d/conda.sh
 
 conda activate $CROSSBAR_ENV
-cd $FFBO_DIR/ffbo.neuronlp
-git checkout config/config.json
-git checkout $1
-sleep 2
 cd $FFBO_DIR/ffbo.processor
 python config.py
 cd components
