@@ -10,7 +10,7 @@ tmux new-session -d -s "processor" $FFBO_DIR/bin/run_processor.sh
 sleep 20
 if [ -d "$ORIENTDB_ROOT/databases/hemibrain" ]
 then
-    tmux new-session -d -s "nlp_hemibrain" "$FFBO_DIR/bin/run_nlp.sh -a hemibrain"
+    tmux new-session -d -s "nlp_hemibrain" "$FFBO_DIR/bin/run_nlp.sh -a hemibrain -b"
     tmux new-session -d -s "neuroarch_hemibrain" "$FFBO_DIR/bin/run_neuroarch.sh -b hemibrain"
 fi
 

@@ -5,7 +5,7 @@ FFBO_DIR={FFBO_DIR}
 tmux new-session -d -s "db" $FFBO_DIR/bin/run_database.sh
 
 tmux new-session -d -s "processor" $FFBO_DIR/bin/run_processor.sh
-tmux new-session -d -s "nlp" "$FFBO_DIR/bin/run_nlp.sh -a $1"
+tmux new-session -d -s "nlp" "$FFBO_DIR/bin/run_nlp.sh -a $1 -b"
 sleep 20
 tmux new-session -d -s "neuroarch" "$FFBO_DIR/bin/run_neuroarch.sh -b $1"
 
