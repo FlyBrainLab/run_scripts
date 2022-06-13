@@ -7,7 +7,7 @@ ORIENTDB_ROOT={ORIENTDB_ROOT}
 tmux new-session -d -s "db" $FFBO_DIR/bin/run_database.sh
 
 tmux new-session -d -s "processor" $FFBO_DIR/bin/run_processor.sh
-sleep 20
+sleep 30
 if [ -d "$ORIENTDB_ROOT/databases/hemibrain" ]
 then
     tmux new-session -d -s "nlp_hemibrain" "$FFBO_DIR/bin/run_nlp.sh -a hemibrain -b"
