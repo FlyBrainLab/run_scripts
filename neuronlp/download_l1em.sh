@@ -41,14 +41,14 @@ then
         then
             rm -rf l1em/*.*
             echo "Downloading Neuroarch database for Larva L1EM dataset"
-            wget --load-cookies /tmp/cookies.txt "https://docs.google.com/uc?export=download&confirm=$(wget --quiet --save-cookies /tmp/cookies.txt --keep-session-cookies --no-check-certificate 'https://docs.google.com/uc?export=download&id=1tcORsE8QVxwuCRQviVsoN11Mjs3Dq_24' -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\1\n/p')&id=1tcORsE8QVxwuCRQviVsoN11Mjs3Dq_24" -O l1em.zip && rm -rf /tmp/cookies.txt
+            wget --load-cookies /tmp/cookies.txt "https://docs.google.com/uc?export=download&confirm=$(wget --quiet --save-cookies /tmp/cookies.txt --keep-session-cookies --no-check-certificate 'https://docs.google.com/uc?export=download&id=1juF2aSp5g-c9S3U3RD9_ydSsDpHaHuLC' -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\1\n/p')&id=1juF2aSp5g-c9S3U3RD9_ydSsDpHaHuLC" -O l1em.zip && rm -rf /tmp/cookies.txt
             $ORIENTDB_DIR/bin/console.sh "create database plocal:../databases/l1em admin admin; restore database ../databases/l1em.zip"
             rm l1em.zip
         else
             echo "Database l1em not downloaded."
         fi
     else
-        wget --load-cookies /tmp/cookies.txt "https://docs.google.com/uc?export=download&confirm=$(wget --quiet --save-cookies /tmp/cookies.txt --keep-session-cookies --no-check-certificate 'https://docs.google.com/uc?export=download&id=1tcORsE8QVxwuCRQviVsoN11Mjs3Dq_24' -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\1\n/p')&id=1tcORsE8QVxwuCRQviVsoN11Mjs3Dq_24" -O l1em.zip && rm -rf /tmp/cookies.txt
+        wget --load-cookies /tmp/cookies.txt "https://docs.google.com/uc?export=download&confirm=$(wget --quiet --save-cookies /tmp/cookies.txt --keep-session-cookies --no-check-certificate 'https://docs.google.com/uc?export=download&id=1juF2aSp5g-c9S3U3RD9_ydSsDpHaHuLC' -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\1\n/p')&id=1juF2aSp5g-c9S3U3RD9_ydSsDpHaHuLC" -O l1em.zip && rm -rf /tmp/cookies.txt
         $ORIENTDB_DIR/bin/console.sh "create database plocal:../databases/l1em admin admin; restore database ../databases/l1em.zip"
         rm l1em.zip
     fi

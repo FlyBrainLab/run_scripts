@@ -40,7 +40,7 @@ then
         then
             rm -rf hemibrain/*.*
             echo "Downloading Neuroarch database for Hemibrain dataset"
-            wget --load-cookies /tmp/cookies.txt "https://docs.google.com/uc?export=download&confirm=$(wget --quiet --save-cookies /tmp/cookies.txt --keep-session-cookies --no-check-certificate 'https://docs.google.com/uc?export=download&id=1jLTNkvIyJhGv3xZZAClzY1R8neLCsh8H' -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\1\n/p')&id=1jLTNkvIyJhGv3xZZAClzY1R8neLCsh8H" -O hemibrain.zip && rm -rf /tmp/cookies.txt
+            wget --load-cookies /tmp/cookies.txt "https://docs.google.com/uc?export=download&confirm=$(wget --quiet --save-cookies /tmp/cookies.txt --keep-session-cookies --no-check-certificate 'https://docs.google.com/uc?export=download&id=1ytVmmLrYqKARw9-0tVGJvQzCIzCLUtaN' -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\1\n/p')&id=1ytVmmLrYqKARw9-0tVGJvQzCIzCLUtaN" -O hemibrain.zip && rm -rf /tmp/cookies.txt
             $ORIENTDB_DIR/bin/console.sh "create database plocal:../databases/hemibrain admin admin; restore database ../databases/hemibrain.zip"
             rm hemibrain.zip
         else
@@ -48,7 +48,7 @@ then
         fi
     else
         echo "Downloading Neuroarch database for Hemibrain dataset"
-        wget --load-cookies /tmp/cookies.txt "https://docs.google.com/uc?export=download&confirm=$(wget --quiet --save-cookies /tmp/cookies.txt --keep-session-cookies --no-check-certificate 'https://docs.google.com/uc?export=download&id=1jLTNkvIyJhGv3xZZAClzY1R8neLCsh8H' -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\1\n/p')&id=1jLTNkvIyJhGv3xZZAClzY1R8neLCsh8H" -O hemibrain.zip && rm -rf /tmp/cookies.txt
+        wget --load-cookies /tmp/cookies.txt "https://docs.google.com/uc?export=download&confirm=$(wget --quiet --save-cookies /tmp/cookies.txt --keep-session-cookies --no-check-certificate 'https://docs.google.com/uc?export=download&id=1ytVmmLrYqKARw9-0tVGJvQzCIzCLUtaN' -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\1\n/p')&id=1ytVmmLrYqKARw9-0tVGJvQzCIzCLUtaN" -O hemibrain.zip && rm -rf /tmp/cookies.txt
         $ORIENTDB_DIR/bin/console.sh "create database plocal:../databases/hemibrain admin admin; restore database ../databases/hemibrain.zip"
         rm hemibrain.zip
     fi
