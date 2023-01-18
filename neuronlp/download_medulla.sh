@@ -65,7 +65,7 @@ do
             $ORIENTDB_DIR/bin/console.sh "create database plocal:../databases/medulla admin admin; restore database ${FILE}"
         fi
         break
-    elif [[ ! -z "${FILE// }" ]]
+    elif [[ -z "${FILE// }" ]]
     then
         while true
         do

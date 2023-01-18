@@ -117,7 +117,7 @@ do
         done
         break
     else
-        read -p "Invalide path, please enter full file path starting with /, otherwise leave blank: " -r FILE
+        read -p "Invalid path, please enter full file path starting with /, otherwise leave blank: " -r FILE
     fi
 done
 
@@ -202,7 +202,7 @@ do
         done
         break
     else
-        read -p "Invalide path, please enter full file path starting with /, otherwise leave blank: " -r FILE
+        read -p "Invalid path, please enter full file path starting with /, otherwise leave blank: " -r FILE
     fi
 done
 
@@ -287,7 +287,7 @@ do
         done
         break
     else
-        read -p "Invalide path, please enter full file path starting with /, otherwise leave blank: " -r FILE
+        read -p "Invalid path, please enter full file path starting with /, otherwise leave blank: " -r FILE
     fi
 done
 
@@ -322,7 +322,7 @@ do
             $ORIENTDB_DIR/bin/console.sh "create database plocal:../databases/medulla admin admin; restore database ${FILE}"
         fi
         break
-    elif [[ ! -z "${FILE// }" ]]
+    elif [[ -z "${FILE// }" ]]
     then
         while true
         do
@@ -372,7 +372,7 @@ do
         done
         break
     else
-        read -p "Invalide path, please enter full file path starting with /, otherwise leave blank: " -r FILE
+        read -p "Invalid path, please enter full file path starting with /, otherwise leave blank: " -r FILE
     fi
 done
 
