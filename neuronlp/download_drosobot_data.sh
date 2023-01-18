@@ -19,7 +19,6 @@ fi
 
 mkdir -p $DATA_DIR
 
-wget --load-cookies /tmp/cookies.txt "https://docs.google.com/uc?export=download&confirm=$(wget --quiet --save-cookies /tmp/cookies.txt --keep-session-cookies --no-check-certificate 'https://docs.google.com/uc?export=download&id=1O92ln6BfAgAVQSUmh5C3e2kk6ojn7rkt' -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\1\n/p')&id=1O92ln6BfAgAVQSUmh5C3e2kk6ojn7rkt" -O $DATA_DIR/GD_augmented.gexf && rm -rf /tmp/cookies.txt
-
-wget --load-cookies /tmp/cookies.txt "https://docs.google.com/uc?export=download&confirm=$(wget --quiet --save-cookies /tmp/cookies.txt --keep-session-cookies --no-check-certificate 'https://docs.google.com/uc?export=download&id=1yqYFoVFA5jvORaCX06U2mkUkbfiajZVL' -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\1\n/p')&id=1yqYFoVFA5jvORaCX06U2mkUkbfiajZVL" -O $DATA_DIR/GV_augmented.gexf && rm -rf /tmp/cookies.txt
-
+wget --load-cookies /tmp/cookies.txt \"https://docs.google.com/uc?export=download&confirm=$(wget --quiet --save-cookies /tmp/cookies.txt --keep-session-cookies --no-check-certificate 'https://docs.google.com/uc?export=download&id=1Tx9QCJYBnsvjXt3-2ti8QZWUswGCyxZx' -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\1\n/p')&id=1Tx9QCJYBnsvjXt3-2ti8QZWUswGCyxZx\" -O $DATA_DIR/drosobot_data.tar.gz && rm -rf /tmp/cookies.txt
+tar xf $DATA_DIR/drosobot_data.tar.gz --directory $DATA_DIR
+rm $DATA_DIR/drosobot_data.tar.gz
