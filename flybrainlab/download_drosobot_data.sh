@@ -19,6 +19,7 @@ fi
 
 mkdir -p $DATA_DIR
 
-wget --load-cookies /tmp/cookies.txt \"https://docs.google.com/uc?export=download&confirm=$(wget --quiet --save-cookies /tmp/cookies.txt --keep-session-cookies --no-check-certificate 'https://docs.google.com/uc?export=download&id=1Tx9QCJYBnsvjXt3-2ti8QZWUswGCyxZx' -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\1\n/p')&id=1Tx9QCJYBnsvjXt3-2ti8QZWUswGCyxZx\" -O $DATA_DIR/drosobot_data.tar.gz && rm -rf /tmp/cookies.txt
+wget --load-cookies /tmp/cookies.txt "https://docs.google.com/uc?export=download&confirm=$(wget --quiet --save-cookies /tmp/cookies.txt --keep-session-cookies --no-check-certificate 'https://docs.google.com/uc?export=download&id=1Tx9QCJYBnsvjXt3-2ti8QZWUswGCyxZx' -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\1\n/p')&id=1Tx9QCJYBnsvjXt3-2ti8QZWUswGCyxZx" -O $DATA_DIR/drosobot_data.tar.gz && rm -rf /tmp/cookies.txt
+
 tar xf $DATA_DIR/drosobot_data.tar.gz --directory $DATA_DIR
 rm $DATA_DIR/drosobot_data.tar.gz
