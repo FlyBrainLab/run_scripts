@@ -85,6 +85,7 @@ do
                                             wget --load-cookies /tmp/cookies.txt "https://docs.google.com/uc?export=download&confirm=$(wget --quiet --save-cookies /tmp/cookies.txt --keep-session-cookies --no-check-certificate 'https://docs.google.com/uc?export=download&id=1ytVmmLrYqKARw9-0tVGJvQzCIzCLUtaN' -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\1\n/p')&id=1ytVmmLrYqKARw9-0tVGJvQzCIzCLUtaN" -O hemibrain.zip && rm -rf /tmp/cookies.txt
                                             $ORIENTDB_DIR/bin/console.sh "create database plocal:../databases/hemibrain admin admin; restore database ../databases/hemibrain.zip"
                                             rm hemibrain.zip
+                                            echo "NeuroArch database for Hemibrain 1.2 dataset has been installed. The original dataset (https://www.janelia.org/project-team/flyem/hemibrain) is licensed under CC-BY (https://creativecommons.org/licenses/by/4.0/)."
                                             break
                                             ;;
                                     [Nn]* ) echo "Database hemibrain not downloaded."
@@ -102,6 +103,7 @@ do
                             wget --load-cookies /tmp/cookies.txt "https://docs.google.com/uc?export=download&confirm=$(wget --quiet --save-cookies /tmp/cookies.txt --keep-session-cookies --no-check-certificate 'https://docs.google.com/uc?export=download&id=1ytVmmLrYqKARw9-0tVGJvQzCIzCLUtaN' -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\1\n/p')&id=1ytVmmLrYqKARw9-0tVGJvQzCIzCLUtaN" -O hemibrain.zip && rm -rf /tmp/cookies.txt
                             $ORIENTDB_DIR/bin/console.sh "create database plocal:../databases/hemibrain admin admin; restore database ../databases/hemibrain.zip"
                             rm hemibrain.zip
+                            echo "NeuroArch database for Hemibrain 1.2 dataset has been installed. The original dataset (https://www.janelia.org/project-team/flyem/hemibrain) is licensed under CC-BY (https://creativecommons.org/licenses/by/4.0/)."
                         fi
                         break
                         ;;
