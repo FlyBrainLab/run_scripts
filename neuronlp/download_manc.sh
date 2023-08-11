@@ -85,7 +85,7 @@ do
                                             wget --load-cookies /tmp/cookies.txt "https://docs.google.com/uc?export=download&confirm=$(wget --quiet --save-cookies /tmp/cookies.txt --keep-session-cookies --no-check-certificate 'https://docs.google.com/uc?export=download&id=15MgSmFMFl_vUtS32rVpb0E7HKpJAQe8v' -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\1\n/p')&id=15MgSmFMFl_vUtS32rVpb0E7HKpJAQe8v" -O manc.zip && rm -rf /tmp/cookies.txt
                                             $ORIENTDB_DIR/bin/console.sh "create database plocal:../databases/manc admin admin; restore database ../databases/manc.zip"
                                             rm manc.zip
-                                            echo "NeuroArch database for MANC 1.0 has been installed. The original dataset (https://www.janelia.org/project-team/flyem/manc-connectome) is licensed under CC-BY (https://creativecommons.org/licenses/by/4.0/)."
+                                            echo "NeuroArch database for MANC 1.0 has been installed. The original dataset (https://www.janelia.org/project-team/flyem/manc-connectome) is provided by HHMI Janelia Research Campus and is licensed under CC-BY (https://creativecommons.org/licenses/by/4.0/)."
                                             break
                                             ;;
                                     [Nn]* ) echo "Database manc not downloaded."
@@ -103,7 +103,7 @@ do
                             wget --load-cookies /tmp/cookies.txt "https://docs.google.com/uc?export=download&confirm=$(wget --quiet --save-cookies /tmp/cookies.txt --keep-session-cookies --no-check-certificate 'https://docs.google.com/uc?export=download&id=15MgSmFMFl_vUtS32rVpb0E7HKpJAQe8v' -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\1\n/p')&id=15MgSmFMFl_vUtS32rVpb0E7HKpJAQe8v" -O manc.zip && rm -rf /tmp/cookies.txt
                             $ORIENTDB_DIR/bin/console.sh "create database plocal:../databases/manc admin admin; restore database ../databases/manc.zip"
                             rm manc.zip
-                            echo "NeuroArch database for MANC 1.0 has been installed. The original dataset (https://www.janelia.org/project-team/flyem/manc-connectome) is licensed under CC-BY (https://creativecommons.org/licenses/by/4.0/)."
+                            echo "NeuroArch database for MANC 1.0 has been installed. The original dataset (https://www.janelia.org/project-team/flyem/manc-connectome) is provided by HHMI Janelia Research Campus and is licensed under CC-BY (https://creativecommons.org/licenses/by/4.0/)."
                         fi
                         break
                         ;;

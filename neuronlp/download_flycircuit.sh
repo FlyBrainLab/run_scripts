@@ -85,6 +85,7 @@ do
                                         wget --load-cookies /tmp/cookies.txt "https://docs.google.com/uc?export=download&confirm=$(wget --quiet --save-cookies /tmp/cookies.txt --keep-session-cookies --no-check-certificate 'https://docs.google.com/uc?export=download&id=1_T-aAqGXh-spuFCWomnEzYnw6WyWUSjq' -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\1\n/p')&id=1_T-aAqGXh-spuFCWomnEzYnw6WyWUSjq" -O flycircuit.zip && rm -rf /tmp/cookies.txt
                                         $ORIENTDB_DIR/bin/console.sh "create database plocal:../databases/flycircuit admin admin; restore database ../databases/flycircuit.zip"
                                         rm flycircuit.zip
+                                        echo "NeuroArch database for FlyCircuit dataset has been installed. The original dataset can be found here (http://flycircuit.tw/)."
                                         break
                                         ;;
                                 [Nn]* ) echo "Database flycircuit not downloaded."
@@ -102,6 +103,7 @@ do
                         wget --load-cookies /tmp/cookies.txt "https://docs.google.com/uc?export=download&confirm=$(wget --quiet --save-cookies /tmp/cookies.txt --keep-session-cookies --no-check-certificate 'https://docs.google.com/uc?export=download&id=1_T-aAqGXh-spuFCWomnEzYnw6WyWUSjq' -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\1\n/p')&id=1_T-aAqGXh-spuFCWomnEzYnw6WyWUSjq" -O flycircuit.zip && rm -rf /tmp/cookies.txt
                         $ORIENTDB_DIR/bin/console.sh "create database plocal:../databases/flycircuit admin admin; restore database ../databases/flycircuit.zip"
                         rm flycircuit.zip
+                        echo "NeuroArch database for FlyCircuit dataset has been installed. The original dataset can be found here (http://flycircuit.tw/)."
                         fi
                         break
                         ;;
