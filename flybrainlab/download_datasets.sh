@@ -507,7 +507,7 @@ do
     then
         while true
         do
-            read -p "Download FlyWire v1.2? (y/N) " -r
+            read -p "Download FlyWire Snapshot630? (y/N) " -r
             case $REPLY in
                 [Yy]* ) if [ -d "flywire" ]
                         then
