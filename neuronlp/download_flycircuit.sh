@@ -2,6 +2,13 @@
 
 set -e
 
+CONDA_ROOT=$(conda info --base)
+FFBO_ENV={FFBO_ENV}
+FFBO_DIR={FFBO_DIR}
+
+. $CONDA_ROOT/etc/profile.d/conda.sh
+conda activate $FFBO_ENV
+
 if [ $# -eq 0 ]
 then
     read -p "Please enter the directory where you installed OrientDB (press N or n to skip download): " -r ORIENTDB_DIR
@@ -82,7 +89,7 @@ do
                                 case $REPLY in
                                 [Yy]* ) rm -rf flycircuit/*.*
                                         echo "Downloading Neuroarch database for FlyCircuit dataset"
-                                        wget --load-cookies /tmp/cookies.txt "https://docs.google.com/uc?export=download&confirm=$(wget --quiet --save-cookies /tmp/cookies.txt --keep-session-cookies --no-check-certificate 'https://docs.google.com/uc?export=download&id=1_T-aAqGXh-spuFCWomnEzYnw6WyWUSjq' -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\1\n/p')&id=1_T-aAqGXh-spuFCWomnEzYnw6WyWUSjq" -O flycircuit.zip && rm -rf /tmp/cookies.txt
+                                        gdown "1_T-aAqGXh-spuFCWomnEzYnw6WyWUSjq" -O flycircuit.zip
                                         $ORIENTDB_DIR/bin/console.sh "create database plocal:../databases/flycircuit admin admin; restore database ../databases/flycircuit.zip"
                                         rm flycircuit.zip
                                         echo "NeuroArch database for FlyCircuit dataset has been installed. The original dataset can be found here (http://flycircuit.tw/)."
@@ -100,7 +107,7 @@ do
                         done
                         else
                         echo "Downloading Neuroarch database for FlyCircuit dataset"
-                        wget --load-cookies /tmp/cookies.txt "https://docs.google.com/uc?export=download&confirm=$(wget --quiet --save-cookies /tmp/cookies.txt --keep-session-cookies --no-check-certificate 'https://docs.google.com/uc?export=download&id=1_T-aAqGXh-spuFCWomnEzYnw6WyWUSjq' -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\1\n/p')&id=1_T-aAqGXh-spuFCWomnEzYnw6WyWUSjq" -O flycircuit.zip && rm -rf /tmp/cookies.txt
+                        gdown "1_T-aAqGXh-spuFCWomnEzYnw6WyWUSjq" -O flycircuit.zip
                         $ORIENTDB_DIR/bin/console.sh "create database plocal:../databases/flycircuit admin admin; restore database ../databases/flycircuit.zip"
                         rm flycircuit.zip
                         echo "NeuroArch database for FlyCircuit dataset has been installed. The original dataset can be found here (http://flycircuit.tw/)."

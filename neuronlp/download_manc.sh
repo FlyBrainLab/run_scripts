@@ -2,6 +2,13 @@
 
 set -e
 
+CONDA_ROOT=$(conda info --base)
+FFBO_ENV={FFBO_ENV}
+FFBO_DIR={FFBO_DIR}
+
+. $CONDA_ROOT/etc/profile.d/conda.sh
+conda activate $FFBO_ENV
+
 if [ $# -eq 0 ]
 then
     read -p "Please enter the directory where you installed OrientDB (press N or n to skip download): " -r ORIENTDB_DIR
@@ -82,7 +89,7 @@ do
                                 case $REPLY in
                                     [Yy]* ) rm -rf manc/*.*
                                             echo "Downloading Neuroarch database for MANC dataset"
-                                            wget --load-cookies /tmp/cookies.txt "https://docs.google.com/uc?export=download&confirm=$(wget --quiet --save-cookies /tmp/cookies.txt --keep-session-cookies --no-check-certificate 'https://docs.google.com/uc?export=download&id=15MgSmFMFl_vUtS32rVpb0E7HKpJAQe8v' -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\1\n/p')&id=15MgSmFMFl_vUtS32rVpb0E7HKpJAQe8v" -O manc.zip && rm -rf /tmp/cookies.txt
+                                            gdown "15MgSmFMFl_vUtS32rVpb0E7HKpJAQe8v" -O manc.zip
                                             $ORIENTDB_DIR/bin/console.sh "create database plocal:../databases/manc admin admin; restore database ../databases/manc.zip"
                                             rm manc.zip
                                             echo "NeuroArch database for MANC 1.0 has been installed. The original dataset (https://www.janelia.org/project-team/flyem/manc-connectome) is provided by HHMI Janelia Research Campus and is licensed under CC-BY (https://creativecommons.org/licenses/by/4.0/)."
@@ -100,7 +107,7 @@ do
                             done
                         else
                             echo "Downloading Neuroarch database for MANC dataset"
-                            wget --load-cookies /tmp/cookies.txt "https://docs.google.com/uc?export=download&confirm=$(wget --quiet --save-cookies /tmp/cookies.txt --keep-session-cookies --no-check-certificate 'https://docs.google.com/uc?export=download&id=15MgSmFMFl_vUtS32rVpb0E7HKpJAQe8v' -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\1\n/p')&id=15MgSmFMFl_vUtS32rVpb0E7HKpJAQe8v" -O manc.zip && rm -rf /tmp/cookies.txt
+                            gdown "15MgSmFMFl_vUtS32rVpb0E7HKpJAQe8v" -O manc.zip
                             $ORIENTDB_DIR/bin/console.sh "create database plocal:../databases/manc admin admin; restore database ../databases/manc.zip"
                             rm manc.zip
                             echo "NeuroArch database for MANC 1.0 has been installed. The original dataset (https://www.janelia.org/project-team/flyem/manc-connectome) is provided by HHMI Janelia Research Campus and is licensed under CC-BY (https://creativecommons.org/licenses/by/4.0/)."

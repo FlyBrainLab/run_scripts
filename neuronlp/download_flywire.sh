@@ -2,6 +2,13 @@
 
 set -e
 
+CONDA_ROOT=$(conda info --base)
+FFBO_ENV={FFBO_ENV}
+FFBO_DIR={FFBO_DIR}
+
+. $CONDA_ROOT/etc/profile.d/conda.sh
+conda activate $FFBO_ENV
+
 if [ $# -eq 0 ]
 then
     read -p "Please enter the directory where you installed OrientDB (press N or n to skip download): " -r ORIENTDB_DIR
@@ -82,7 +89,7 @@ do
                                 case $REPLY in
                                     [Yy]* ) rm -rf flywire/*.*
                                             echo "Downloading Neuroarch database for FlyWire dataset"
-                                            wget --load-cookies /tmp/cookies.txt "https://docs.google.com/uc?export=download&confirm=$(wget --quiet --save-cookies /tmp/cookies.txt --keep-session-cookies --no-check-certificate 'https://docs.google.com/uc?export=download&id=1S_6qRe7lBIC8vzZvsFAM59ScaMVwx7as' -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\1\n/p')&id=1S_6qRe7lBIC8vzZvsFAM59ScaMVwx7as" -O flywire.zip && rm -rf /tmp/cookies.txt
+                                            gdown "1S_6qRe7lBIC8vzZvsFAM59ScaMVwx7as" -O flywire.zip
                                             $ORIENTDB_DIR/bin/console.sh "create database plocal:../databases/flywire admin admin; restore database ../databases/flywire.zip"
                                             rm flywire.zip
                                             echo "NeuroArch database for FlyWire dataset Snapshot 630 has been installed. The original dataset (https://flywire.ai) is licensed under CC-BY-NC 4.0 (https://creativecommons.org/licenses/by-nc/4.0/)."
@@ -100,7 +107,7 @@ do
                             done
                         else
                             echo "Downloading Neuroarch database for FlyWire dataset"
-                            wget --load-cookies /tmp/cookies.txt "https://docs.google.com/uc?export=download&confirm=$(wget --quiet --save-cookies /tmp/cookies.txt --keep-session-cookies --no-check-certificate 'https://docs.google.com/uc?export=download&id=1S_6qRe7lBIC8vzZvsFAM59ScaMVwx7as' -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\1\n/p')&id=1S_6qRe7lBIC8vzZvsFAM59ScaMVwx7as" -O flywire.zip && rm -rf /tmp/cookies.txt
+                            gdown "1S_6qRe7lBIC8vzZvsFAM59ScaMVwx7as" -O flywire.zip
                             $ORIENTDB_DIR/bin/console.sh "create database plocal:../databases/flywire admin admin; restore database ../databases/flywire.zip"
                             rm flywire.zip
                             echo "NeuroArch database for FlyWire dataset Snapshot 630 has been installed. The original dataset (https://flywire.ai) is licensed under CC-BY-NC 4.0 (https://creativecommons.org/licenses/by-nc/4.0/)."

@@ -2,6 +2,13 @@
 
 set -e
 
+CONDA_ROOT=$(conda info --base)
+FFBO_ENV={FFBO_ENV}
+FFBO_DIR={FFBO_DIR}
+
+. $CONDA_ROOT/etc/profile.d/conda.sh
+conda activate $FFBO_ENV
+
 if [ $# -eq 0 ]
 then
     read -p "Please enter the directory where you installed OrientDB (press N or n to skip download): " -r ORIENTDB_DIR
@@ -80,7 +87,7 @@ do
                                 case $REPLY in
                                 [Yy]* ) rm -rf fib19/*.*
                                         echo "Downloading Neuroarch database for FIB19 Optic Lobe dataset"
-                                        wget --load-cookies /tmp/cookies.txt "https://docs.google.com/uc?export=download&confirm=$(wget --quiet --save-cookies /tmp/cookies.txt --keep-session-cookies --no-check-certificate 'https://docs.google.com/uc?export=download&id=11TJlrASgf6HlhLNrnoAZ8trd8cbcToOM' -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\1\n/p')&id=11TJlrASgf6HlhLNrnoAZ8trd8cbcToOM" -O fib19.zip && rm -rf /tmp/cookies.txt
+                                        gdown "11TJlrASgf6HlhLNrnoAZ8trd8cbcToOM" -O fib19.zip
                                         $ORIENTDB_DIR/bin/console.sh "create database plocal:../databases/fib19 admin admin; restore database ../databases/fib19.zip"
                                         rm fib19.zip
                                         echo "NeuroArch database for FIB19 Optic Lobe dataset has been installed. The original dataset is provided by HHMI Janelia Research Campus and is licensed under CC-BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/legalcode)."
@@ -98,7 +105,7 @@ do
                         done
                         else
                         echo "Downloading Neuroarch database for FIB19 Optic Lobe dataset"
-                        wget --load-cookies /tmp/cookies.txt "https://docs.google.com/uc?export=download&confirm=$(wget --quiet --save-cookies /tmp/cookies.txt --keep-session-cookies --no-check-certificate 'https://docs.google.com/uc?export=download&id=11TJlrASgf6HlhLNrnoAZ8trd8cbcToOM' -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\1\n/p')&id=11TJlrASgf6HlhLNrnoAZ8trd8cbcToOM" -O fib19.zip && rm -rf /tmp/cookies.txt
+                        gdown "11TJlrASgf6HlhLNrnoAZ8trd8cbcToOM" -O fib19.zip
                         $ORIENTDB_DIR/bin/console.sh "create database plocal:../databases/fib19 admin admin; restore database ../databases/fib19.zip"
                         rm fib19.zip
                         echo "NeuroArch database for FIB19 Optic Lobe dataset has been installed. The original dataset is provided by HHMI Janelia Research Campus and is  licensed under CC-BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/legalcode)."

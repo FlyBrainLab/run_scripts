@@ -2,6 +2,13 @@
 
 set -e
 
+CONDA_ROOT=$(conda info --base)
+FFBO_ENV={FFBO_ENV}
+FFBO_DIR={FFBO_DIR}
+
+. $CONDA_ROOT/etc/profile.d/conda.sh
+conda activate $FFBO_ENV
+
 if [ $# -eq 0 ]
 then
     read -p "Please enter the directory where you installed OrientDB (press N or n to skip download): " -r ORIENTDB_DIR
@@ -80,7 +87,7 @@ do
                                 case $REPLY in
                                 [Yy]* ) rm -rf medulla/*.*
                                         echo "Downloading Neuroarch database for Medulla 7 Column dataset"
-                                        wget --load-cookies /tmp/cookies.txt "https://docs.google.com/uc?export=download&confirm=$(wget --quiet --save-cookies /tmp/cookies.txt --keep-session-cookies --no-check-certificate 'https://docs.google.com/uc?export=download&id=1yc929e0fRIcWER5fL1y_z707cNEbV-ti' -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\1\n/p')&id=1yc929e0fRIcWER5fL1y_z707cNEbV-ti" -O medulla.zip && rm -rf /tmp/cookies.txt
+                                        gdown "1yc929e0fRIcWER5fL1y_z707cNEbV-ti" -O medulla.zip
                                         $ORIENTDB_DIR/bin/console.sh "create database plocal:../databases/medulla admin admin; restore database ../databases/medulla.zip"
                                         rm medulla.zip
                                         echo "NeuroArch database for Medulla 7 column dataset has been installed. The original dataset is provided by HHMI Janelia Research Campus. The license for the original dataset is the following: This data cannot be used for biological discovery or biological publications before Fly EM publishes it. For other purposes (general bio data analysis algorithms, etc), this data is made available under the Open Data Commons Attribution License: http://opendatacommons.org/licenses/by/1.0/."
@@ -98,7 +105,7 @@ do
                         done
                         else
                         echo "Downloading Neuroarch database for Medulla 7 Column dataset"
-                        wget --load-cookies /tmp/cookies.txt "https://docs.google.com/uc?export=download&confirm=$(wget --quiet --save-cookies /tmp/cookies.txt --keep-session-cookies --no-check-certificate 'https://docs.google.com/uc?export=download&id=1yc929e0fRIcWER5fL1y_z707cNEbV-ti' -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\1\n/p')&id=1yc929e0fRIcWER5fL1y_z707cNEbV-ti" -O medulla.zip && rm -rf /tmp/cookies.txt
+                        gdown "1yc929e0fRIcWER5fL1y_z707cNEbV-ti" -O medulla.zip
                         $ORIENTDB_DIR/bin/console.sh "create database plocal:../databases/medulla admin admin; restore database ../databases/medulla.zip"
                         rm medulla.zip
                         echo "NeuroArch database for Medulla 7 column dataset has been installed. The original dataset is provided by HHMI Janelia Research Campus. The license for the original dataset is the following: This data cannot be used for biological discovery or biological publications before Fly EM publishes it. For other purposes (general bio data analysis algorithms, etc), this data is made available under the Open Data Commons Attribution License: http://opendatacommons.org/licenses/by/1.0/."
