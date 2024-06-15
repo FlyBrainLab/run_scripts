@@ -2,6 +2,13 @@
 
 set -e
 
+CONDA_ROOT=$(conda info --base)
+FFBO_ENV={FFBO_ENV}
+FFBO_DIR={FFBO_DIR}
+
+. $CONDA_ROOT/etc/profile.d/conda.sh
+conda activate $FFBO_ENV
+
 if [ $# -eq 0 ]
 then
     read -p "Please enter the directory where you installed OrientDB (press N or n to skip download): " -r ORIENTDB_DIR
@@ -82,7 +89,7 @@ do
                                 case $REPLY in
                                     [Yy]* ) rm -rf hemibrain/*.*
                                             echo "Downloading Neuroarch database for Hemibrain dataset"
-                                            wget --load-cookies /tmp/cookies.txt "https://docs.google.com/uc?export=download&confirm=$(wget --quiet --save-cookies /tmp/cookies.txt --keep-session-cookies --no-check-certificate 'https://docs.google.com/uc?export=download&id=1ytVmmLrYqKARw9-0tVGJvQzCIzCLUtaN' -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\1\n/p')&id=1ytVmmLrYqKARw9-0tVGJvQzCIzCLUtaN" -O hemibrain.zip && rm -rf /tmp/cookies.txt
+                                            gdown "1ytVmmLrYqKARw9-0tVGJvQzCIzCLUtaN" -O hemibrain.zip
                                             $ORIENTDB_DIR/bin/console.sh "create database plocal:../databases/hemibrain admin admin; restore database ../databases/hemibrain.zip"
                                             rm hemibrain.zip
                                             echo "NeuroArch database for Hemibrain 1.2 dataset has been installed. The original dataset (https://www.janelia.org/project-team/flyem/hemibrain) is provided by HHMI Janelia Research Campus and is licensed under CC-BY (https://creativecommons.org/licenses/by/4.0/)."
@@ -100,7 +107,7 @@ do
                             done
                         else
                             echo "Downloading Neuroarch database for Hemibrain dataset"
-                            wget --load-cookies /tmp/cookies.txt "https://docs.google.com/uc?export=download&confirm=$(wget --quiet --save-cookies /tmp/cookies.txt --keep-session-cookies --no-check-certificate 'https://docs.google.com/uc?export=download&id=1ytVmmLrYqKARw9-0tVGJvQzCIzCLUtaN' -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\1\n/p')&id=1ytVmmLrYqKARw9-0tVGJvQzCIzCLUtaN" -O hemibrain.zip && rm -rf /tmp/cookies.txt
+                            gdown "1ytVmmLrYqKARw9-0tVGJvQzCIzCLUtaN" -O hemibrain.zip
                             $ORIENTDB_DIR/bin/console.sh "create database plocal:../databases/hemibrain admin admin; restore database ../databases/hemibrain.zip"
                             rm hemibrain.zip
                             echo "NeuroArch database for Hemibrain 1.2 dataset has been installed. The original dataset (https://www.janelia.org/project-team/flyem/hemibrain) is provided by HHMI Janelia Research Campus and is licensed under CC-BY (https://creativecommons.org/licenses/by/4.0/)."
@@ -169,7 +176,7 @@ do
                                 case $REPLY in
                                 [Yy]* ) rm -rf flycircuit/*.*
                                         echo "Downloading Neuroarch database for FlyCircuit dataset"
-                                        wget --load-cookies /tmp/cookies.txt "https://docs.google.com/uc?export=download&confirm=$(wget --quiet --save-cookies /tmp/cookies.txt --keep-session-cookies --no-check-certificate 'https://docs.google.com/uc?export=download&id=1_T-aAqGXh-spuFCWomnEzYnw6WyWUSjq' -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\1\n/p')&id=1_T-aAqGXh-spuFCWomnEzYnw6WyWUSjq" -O flycircuit.zip && rm -rf /tmp/cookies.txt
+                                        gdown "1_T-aAqGXh-spuFCWomnEzYnw6WyWUSjq" -O flycircuit.zip
                                         $ORIENTDB_DIR/bin/console.sh "create database plocal:../databases/flycircuit admin admin; restore database ../databases/flycircuit.zip"
                                         rm flycircuit.zip
                                         echo "NeuroArch database for FlyCircuit dataset has been installed. The original dataset can be found here (http://flycircuit.tw/)."
@@ -187,7 +194,7 @@ do
                         done
                         else
                         echo "Downloading Neuroarch database for FlyCircuit dataset"
-                        wget --load-cookies /tmp/cookies.txt "https://docs.google.com/uc?export=download&confirm=$(wget --quiet --save-cookies /tmp/cookies.txt --keep-session-cookies --no-check-certificate 'https://docs.google.com/uc?export=download&id=1_T-aAqGXh-spuFCWomnEzYnw6WyWUSjq' -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\1\n/p')&id=1_T-aAqGXh-spuFCWomnEzYnw6WyWUSjq" -O flycircuit.zip && rm -rf /tmp/cookies.txt
+                        gdown "1_T-aAqGXh-spuFCWomnEzYnw6WyWUSjq" -O flycircuit.zip
                         $ORIENTDB_DIR/bin/console.sh "create database plocal:../databases/flycircuit admin admin; restore database ../databases/flycircuit.zip"
                         rm flycircuit.zip
                         echo "NeuroArch database for FlyCircuit dataset has been installed. The original dataset can be found here (http://flycircuit.tw/)."
@@ -257,7 +264,7 @@ do
                                 case $REPLY in
                                 [Yy]* ) rm -rf l1em/*.*
                                         echo "Downloading Neuroarch database for Larva L1EM dataset"
-                                        wget --load-cookies /tmp/cookies.txt "https://docs.google.com/uc?export=download&confirm=$(wget --quiet --save-cookies /tmp/cookies.txt --keep-session-cookies --no-check-certificate 'https://docs.google.com/uc?export=download&id=1juF2aSp5g-c9S3U3RD9_ydSsDpHaHuLC' -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\1\n/p')&id=1juF2aSp5g-c9S3U3RD9_ydSsDpHaHuLC" -O l1em.zip && rm -rf /tmp/cookies.txt
+                                        gdown "1juF2aSp5g-c9S3U3RD9_ydSsDpHaHuLC" -O l1em.zip
                                         $ORIENTDB_DIR/bin/console.sh "create database plocal:../databases/l1em admin admin; restore database ../databases/l1em.zip"
                                         rm l1em.zip
                                         echo "NeuroArch database for Larva L1EM dataset has been installed. The original dataset (https://doi.org/10.1126/science.add9330) is licensed under CC-BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/legalcode)."
@@ -275,7 +282,7 @@ do
                         done
                         else
                         echo "Downloading Neuroarch database for Larva L1EM dataset"
-                        wget --load-cookies /tmp/cookies.txt "https://docs.google.com/uc?export=download&confirm=$(wget --quiet --save-cookies /tmp/cookies.txt --keep-session-cookies --no-check-certificate 'https://docs.google.com/uc?export=download&id=1juF2aSp5g-c9S3U3RD9_ydSsDpHaHuLC' -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\1\n/p')&id=1juF2aSp5g-c9S3U3RD9_ydSsDpHaHuLC" -O l1em.zip && rm -rf /tmp/cookies.txt
+                        gdown "1juF2aSp5g-c9S3U3RD9_ydSsDpHaHuLC" -O l1em.zip
                         $ORIENTDB_DIR/bin/console.sh "create database plocal:../databases/l1em admin admin; restore database ../databases/l1em.zip"
                         rm l1em.zip
                         echo "NeuroArch database for Larva L1EM dataset has been installed. The original dataset (https://doi.org/10.1126/science.add9330) is licensed under CC-BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/legalcode)."
@@ -344,7 +351,7 @@ do
                                 case $REPLY in
                                 [Yy]* ) rm -rf medulla/*.*
                                         echo "Downloading Neuroarch database for Medulla 7 Column dataset"
-                                        wget --load-cookies /tmp/cookies.txt "https://docs.google.com/uc?export=download&confirm=$(wget --quiet --save-cookies /tmp/cookies.txt --keep-session-cookies --no-check-certificate 'https://docs.google.com/uc?export=download&id=1yc929e0fRIcWER5fL1y_z707cNEbV-ti' -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\1\n/p')&id=1yc929e0fRIcWER5fL1y_z707cNEbV-ti" -O medulla.zip && rm -rf /tmp/cookies.txt
+                                        gdown "1yc929e0fRIcWER5fL1y_z707cNEbV-ti" -O medulla.zip
                                         $ORIENTDB_DIR/bin/console.sh "create database plocal:../databases/medulla admin admin; restore database ../databases/medulla.zip"
                                         rm medulla.zip
                                         echo "NeuroArch database for Medulla 7 column dataset has been installed. The original dataset is provided by HHMI Janelia Research Campus. The license for the original dataset is the following: This data cannot be used for biological discovery or biological publications before Fly EM publishes it. For other purposes (general bio data analysis algorithms, etc), this data is made available under the Open Data Commons Attribution License: http://opendatacommons.org/licenses/by/1.0/."
@@ -362,7 +369,7 @@ do
                         done
                         else
                         echo "Downloading Neuroarch database for Medulla 7 Column dataset"
-                        wget --load-cookies /tmp/cookies.txt "https://docs.google.com/uc?export=download&confirm=$(wget --quiet --save-cookies /tmp/cookies.txt --keep-session-cookies --no-check-certificate 'https://docs.google.com/uc?export=download&id=1yc929e0fRIcWER5fL1y_z707cNEbV-ti' -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\1\n/p')&id=1yc929e0fRIcWER5fL1y_z707cNEbV-ti" -O medulla.zip && rm -rf /tmp/cookies.txt
+                        gdown "1yc929e0fRIcWER5fL1y_z707cNEbV-ti" -O medulla.zip
                         $ORIENTDB_DIR/bin/console.sh "create database plocal:../databases/medulla admin admin; restore database ../databases/medulla.zip"
                         rm medulla.zip
                         echo "NeuroArch database for Medulla 7 column dataset has been installed. The original dataset is provided by HHMI Janelia Research Campus. The license for the original dataset is the following: This data cannot be used for biological discovery or biological publications before Fly EM publishes it. For other purposes (general bio data analysis algorithms, etc), this data is made available under the Open Data Commons Attribution License: http://opendatacommons.org/licenses/by/1.0/."
@@ -431,7 +438,7 @@ do
                                 case $REPLY in
                                     [Yy]* ) rm -rf manc/*.*
                                             echo "Downloading Neuroarch database for MANC dataset"
-                                            wget --load-cookies /tmp/cookies.txt "https://docs.google.com/uc?export=download&confirm=$(wget --quiet --save-cookies /tmp/cookies.txt --keep-session-cookies --no-check-certificate 'https://docs.google.com/uc?export=download&id=15MgSmFMFl_vUtS32rVpb0E7HKpJAQe8v' -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\1\n/p')&id=15MgSmFMFl_vUtS32rVpb0E7HKpJAQe8v" -O manc.zip && rm -rf /tmp/cookies.txt
+                                            gdown "15MgSmFMFl_vUtS32rVpb0E7HKpJAQe8v" -O manc.zip
                                             $ORIENTDB_DIR/bin/console.sh "create database plocal:../databases/manc admin admin; restore database ../databases/manc.zip"
                                             rm manc.zip
                                             echo "NeuroArch database for MANC 1.0 has been installed. The original dataset (https://www.janelia.org/project-team/flyem/manc-connectome) is provided by HHMI Janelia Research Campus and is licensed under CC-BY (https://creativecommons.org/licenses/by/4.0/)."
@@ -449,7 +456,7 @@ do
                             done
                         else
                             echo "Downloading Neuroarch database for MANC dataset"
-                            wget --load-cookies /tmp/cookies.txt "https://docs.google.com/uc?export=download&confirm=$(wget --quiet --save-cookies /tmp/cookies.txt --keep-session-cookies --no-check-certificate 'https://docs.google.com/uc?export=download&id=15MgSmFMFl_vUtS32rVpb0E7HKpJAQe8v' -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\1\n/p')&id=15MgSmFMFl_vUtS32rVpb0E7HKpJAQe8v" -O manc.zip && rm -rf /tmp/cookies.txt
+                            gdown "15MgSmFMFl_vUtS32rVpb0E7HKpJAQe8v" -O manc.zip
                             $ORIENTDB_DIR/bin/console.sh "create database plocal:../databases/manc admin admin; restore database ../databases/manc.zip"
                             rm manc.zip
                             echo "NeuroArch database for MANC 1.0 has been installed. The original dataset (https://www.janelia.org/project-team/flyem/manc-connectome) is provided by HHMI Janelia Research Campus and is licensed under CC-BY (https://creativecommons.org/licenses/by/4.0/)."
@@ -518,7 +525,7 @@ do
                                 case $REPLY in
                                     [Yy]* ) rm -rf flywire/*.*
                                             echo "Downloading Neuroarch database for FlyWire dataset"
-                                            wget --load-cookies /tmp/cookies.txt "https://docs.google.com/uc?export=download&confirm=$(wget --quiet --save-cookies /tmp/cookies.txt --keep-session-cookies --no-check-certificate 'https://docs.google.com/uc?export=download&id=1S_6qRe7lBIC8vzZvsFAM59ScaMVwx7as' -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\1\n/p')&id=1S_6qRe7lBIC8vzZvsFAM59ScaMVwx7as" -O flywire.zip && rm -rf /tmp/cookies.txt
+                                            gdown "1S_6qRe7lBIC8vzZvsFAM59ScaMVwx7as" -O flywire.zip
                                             $ORIENTDB_DIR/bin/console.sh "create database plocal:../databases/flywire admin admin; restore database ../databases/flywire.zip"
                                             rm flywire.zip
                                             echo "NeuroArch database for FlyWire dataset Snapshot 630 has been installed. The original dataset (https://flywire.ai) is licensed under CC-BY-NC 4.0 (https://creativecommons.org/licenses/by-nc/4.0/)."
@@ -536,7 +543,7 @@ do
                             done
                         else
                             echo "Downloading Neuroarch database for FlyWire dataset"
-                            wget --load-cookies /tmp/cookies.txt "https://docs.google.com/uc?export=download&confirm=$(wget --quiet --save-cookies /tmp/cookies.txt --keep-session-cookies --no-check-certificate 'https://docs.google.com/uc?export=download&id=1S_6qRe7lBIC8vzZvsFAM59ScaMVwx7as' -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\1\n/p')&id=1S_6qRe7lBIC8vzZvsFAM59ScaMVwx7as" -O flywire.zip && rm -rf /tmp/cookies.txt
+                            gdown "1S_6qRe7lBIC8vzZvsFAM59ScaMVwx7as" -O flywire.zip
                             $ORIENTDB_DIR/bin/console.sh "create database plocal:../databases/flywire admin admin; restore database ../databases/flywire.zip"
                             rm flywire.zip
                             echo "NeuroArch database for FlyWire dataset Snapshot 630 has been installed. The original dataset (https://flywire.ai) is licensed under CC-BY-NC 4.0 (https://creativecommons.org/licenses/by-nc/4.0/)."
@@ -605,7 +612,7 @@ do
                                 case $REPLY in
                                 [Yy]* ) rm -rf fib19/*.*
                                         echo "Downloading Neuroarch database for FIB19 Optic Lobe dataset"
-                                        wget --load-cookies /tmp/cookies.txt "https://docs.google.com/uc?export=download&confirm=$(wget --quiet --save-cookies /tmp/cookies.txt --keep-session-cookies --no-check-certificate 'https://docs.google.com/uc?export=download&id=11TJlrASgf6HlhLNrnoAZ8trd8cbcToOM' -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\1\n/p')&id=11TJlrASgf6HlhLNrnoAZ8trd8cbcToOM" -O fib19.zip && rm -rf /tmp/cookies.txt
+                                        gdown "11TJlrASgf6HlhLNrnoAZ8trd8cbcToOM" -O fib19.zip
                                         $ORIENTDB_DIR/bin/console.sh "create database plocal:../databases/fib19 admin admin; restore database ../databases/fib19.zip"
                                         rm fib19.zip
                                         echo "NeuroArch database for FIB19 Optic Lobe dataset has been installed. The original dataset is provided by HHMI Janelia Research Campus and is licensed under CC-BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/legalcode)."
@@ -623,7 +630,7 @@ do
                         done
                         else
                         echo "Downloading Neuroarch database for FIB19 Optic Lobe dataset"
-                        wget --load-cookies /tmp/cookies.txt "https://docs.google.com/uc?export=download&confirm=$(wget --quiet --save-cookies /tmp/cookies.txt --keep-session-cookies --no-check-certificate 'https://docs.google.com/uc?export=download&id=11TJlrASgf6HlhLNrnoAZ8trd8cbcToOM' -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\1\n/p')&id=11TJlrASgf6HlhLNrnoAZ8trd8cbcToOM" -O fib19.zip && rm -rf /tmp/cookies.txt
+                        gdown "11TJlrASgf6HlhLNrnoAZ8trd8cbcToOM" -O fib19.zip
                         $ORIENTDB_DIR/bin/console.sh "create database plocal:../databases/fib19 admin admin; restore database ../databases/fib19.zip"
                         rm fib19.zip
                         echo "NeuroArch database for FIB19 Optic Lobe dataset has been installed. The original dataset is provided by HHMI Janelia Research Campus and is  licensed under CC-BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/legalcode)."
