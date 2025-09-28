@@ -89,10 +89,10 @@ do
                                 case $REPLY in
                                     [Yy]* ) rm -rf flywire/*.*
                                             echo "Downloading Neuroarch database for FlyWire dataset"
-                                            gdown "1S_6qRe7lBIC8vzZvsFAM59ScaMVwx7as" -O flywire.zip
+                                            gdown "1Tcc_WzaAMJUD99j9fBKIj6cWrC1RX-cQ" -O flywire.zip
                                             $ORIENTDB_DIR/bin/console.sh "create database plocal:../databases/flywire admin admin; restore database ../databases/flywire.zip"
                                             rm flywire.zip
-                                            echo "NeuroArch database for FlyWire dataset Snapshot 630 has been installed. The original dataset (https://flywire.ai) is licensed under CC-BY-NC 4.0 (https://creativecommons.org/licenses/by-nc/4.0/)."
+                                            echo "NeuroArch database for FlyWire dataset Snapshot 783 has been installed. The original dataset (https://flywire.ai) is licensed under CC-BY-NC 4.0 (https://creativecommons.org/licenses/by-nc/4.0/)."
                                             break
                                             ;;
                                     [Nn]* ) echo "Database flywire not downloaded."
@@ -107,10 +107,10 @@ do
                             done
                         else
                             echo "Downloading Neuroarch database for FlyWire dataset"
-                            gdown "1S_6qRe7lBIC8vzZvsFAM59ScaMVwx7as" -O flywire.zip
+                            gdown "1Tcc_WzaAMJUD99j9fBKIj6cWrC1RX-cQ" -O flywire.zip
                             $ORIENTDB_DIR/bin/console.sh "create database plocal:../databases/flywire admin admin; restore database ../databases/flywire.zip"
                             rm flywire.zip
-                            echo "NeuroArch database for FlyWire dataset Snapshot 630 has been installed. The original dataset (https://flywire.ai) is licensed under CC-BY-NC 4.0 (https://creativecommons.org/licenses/by-nc/4.0/)."
+                            echo "NeuroArch database for FlyWire dataset Snapshot 783 has been installed. The original dataset (https://flywire.ai) is licensed under CC-BY-NC 4.0 (https://creativecommons.org/licenses/by-nc/4.0/)."
                         fi
                         break
                         ;;
